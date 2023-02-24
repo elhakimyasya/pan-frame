@@ -89,6 +89,7 @@
     touch-action: none;
     position: relative;
     z-index: -1;
+    transition: none;
 }
 #post_body .image_container .image_content .content_primary {
     --mainColor: #0054a3;

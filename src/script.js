@@ -81,7 +81,7 @@ const selectElements = [
 
             "Logo PAN - Logo PUAN": "https://i.imgur.com/UPPAYZb.png",
             "Logo PAN - Logo DPRD Pringsewu": "https://i.imgur.com/5K6HsSf.png",
-            
+
             "Workshop Rakornas - Pemenangan Pemilu": "https://i.imgur.com/U4yKWDP.png",
             "PAN 12 PAS": "https://i.imgur.com/NtbNvr2.png",
             "Pasti Ada HaraPAN": "https://i.imgur.com/KSQNDjj.png",
@@ -181,17 +181,22 @@ if (navigator.share) {
     buttonShareAlt.style.display = 'none';
 }
 
-resizeText('.content_primary .__wrapper');
-resizeText('.content_secondary .__wrapper');
-
-window.addEventListener('load', () => {
-    resizeText('.content_primary .__wrapper');
-    resizeText('.content_secondary .__wrapper');
-
-    document.querySelector('#post_body .container').classList.remove('hidden')
+window.addEventListener('resize', () => {
+    resizeText('#post_body .content_primary .__wrapper');
+    resizeText('#post_body .content_secondary .__wrapper');
 });
 
+window.onload = function () {
+    document.querySelector('#post_body .container').classList.remove('hidden');
+
+    resizeText('#post_body .content_primary .__wrapper');
+    resizeText('#post_body .content_secondary .__wrapper');
+};
+
+resizeText('#post_body .content_primary .__wrapper');
+resizeText('#post_body .content_secondary .__wrapper');
+
 // window.addEventListener('resize', () => {
-//     resizeText('.content_primary .__wrapper');
-//     resizeText('.content_secondary .__wrapper');
+//     resizeText('#post_body .content_primary .__wrapper');
+//     resizeText('#post_body .content_secondary .__wrapper');
 // });
