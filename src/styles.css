@@ -16,10 +16,6 @@
 #post_body .container {
     margin-left: auto;
     margin-right: auto;
-    width: 100%;
-    max-width: 780px;
-    position: relative;
-    overflow: hidden;
 }
 #post_body .container img {
     margin: 0;

@@ -13,8 +13,8 @@ if (uri.indexOf('?m=1', '?m=1') > 0) {
     window.history.replaceState({}, document.title, cleanUri);
 };
 
-const element = document.querySelector('.image_main img');
-const instance = panzoom(element, {
+const imagePhotos = document.querySelector('#post_body .image_main img');
+const instance = panzoom(imagePhotos, {
     minZoom: 0.5,
     maxZoom: 3,
     bounds: true,
@@ -38,10 +38,10 @@ const resizeText = (selector) => {
     textEl.style.lineHeight = 1.3 * fontSize / 100;
 };
 
-const inputs = document.querySelectorAll('input[data-target]');
+const inputs = document.querySelectorAll('#post_body input[data-target]');
 inputs.forEach(input => {
     const target = input.dataset.target;
-    const span = document.querySelector(`[data-content="${target}"]`);
+    const span = document.querySelector(`#post_body [data-content="${target}"]`);
     input.addEventListener('keyup', () => {
         span.textContent = input.value;
     });
@@ -59,18 +59,18 @@ const imageToBase64 = (file) => new Promise((resolve, reject) => {
     };
 });
 
-const inputPhoto = document.querySelector('.input_photo');
+const inputPhoto = document.querySelector('#post_body .input_photo');
 inputPhoto.onchange = async () => {
     let photoFile = inputPhoto.files[0];
     functionSnackbar('Mengunggah Foto...', 2000);
 
-    document.querySelector('.image_main img').setAttribute('src', await imageToBase64(photoFile));
+    imagePhotos.setAttribute('src', await imageToBase64(photoFile));
 };
 
 const selectElements = [
     {
-        selectId: 'select_image_ornament',
-        imageId: 'image_ornament',
+        selectId: '#post_body #select_image_ornament',
+        imageId: '#post_body #image_ornament',
         options: {
             "Logo PAN": "https://i.imgur.com/ROgEyYo.png",
             "Logo PAN - Bendera": "https://i.imgur.com/LDeJGq7.png",
@@ -89,8 +89,8 @@ const selectElements = [
         }
     },
     {
-        selectId: 'select_image_background',
-        imageId: 'image_background',
+        selectId: '#post_body #select_image_background',
+        imageId: '#post_body #image_background',
         options: {
             "Background 1": "https://i.imgur.com/UUB5eWK.png",
             "Background 2": "https://i.imgur.com/49VKmUV.png",
@@ -102,8 +102,8 @@ const selectElements = [
 ];
 
 selectElements.forEach(selectElement => {
-    const select = document.getElementById(selectElement.selectId);
-    const image = document.getElementById(selectElement.imageId);
+    const select = document.querySelector(selectElement.selectId);
+    const image = document.querySelector(selectElement.imageId);
 
     for (const key in selectElement.options) {
         const option = document.createElement('option');
@@ -124,8 +124,8 @@ selectElements.forEach(selectElement => {
     });
 });
 
-const imageContainer = document.querySelector('.image_container');
-const buttonShare = document.querySelector('.btn_share_image');
+const imageContainer = document.querySelector('#post_body .image_container');
+const buttonShare = document.querySelector('#post_body .btn_share_image');
 buttonShare.addEventListener('click', (event) => {
     event.preventDefault();
     functionSnackbar('Mendownload Foto...', 2000);
@@ -137,14 +137,14 @@ buttonShare.addEventListener('click', (event) => {
         const link = document.createElement('a');
         link.style.margin = "0 !important"
         link.href = canvas.toDataURL('image/jpeg');
-        link.download = 'twibbon_pan.png';
+        link.download = 'Twibbon_PAN.png';
         link.click();
 
         element.click();
     });
 });
 
-const buttonShareAlt = document.querySelector('.btn_share_image_alt');
+const buttonShareAlt = document.querySelector('#post_body .btn_share_image_alt');
 if (navigator.share) {
     buttonShareAlt.addEventListener('click', (event) => {
         event.preventDefault();
@@ -161,7 +161,7 @@ if (navigator.share) {
                 const file = new File([blob], 'picture.jpg', {
                     type: 'image/jpeg'
                 });
-                const text = document.querySelector('.content_primary .__wrapper').textContent.trim().replace(/\s+/g, " ");
+                const text = document.querySelector('#post_body .content_primary .__wrapper').textContent.trim().replace(/\s+/g, " ");
 
                 const filesArray = [file];
                 const shareData = {
@@ -187,6 +187,8 @@ resizeText('.content_secondary .__wrapper');
 window.addEventListener('load', () => {
     resizeText('.content_primary .__wrapper');
     resizeText('.content_secondary .__wrapper');
+
+    document.querySelector('#post_body .container').classList.remove('hidden')
 });
 
 // window.addEventListener('resize', () => {
