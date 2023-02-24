@@ -2,24 +2,6 @@ import panzoom from 'panzoom';
 import html2canvas from 'html2canvas';
 import './styles.css';
 
-elcreativeConfig.options.optionFeatureImageZoom = "1px";
-
-const viewport = document.querySelector('meta[name=viewport]');
-viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0');
-
-const uri = window.location.toString();
-if (uri.indexOf('?m=1', '?m=1') > 0) {
-    const cleanUri = uri.substring(0, uri.indexOf('?m=1'));
-    window.history.replaceState({}, document.title, cleanUri);
-};
-
-const imagePhotos = document.querySelector('#post_body .image_main img');
-const instance = panzoom(imagePhotos, {
-    minZoom: 0.5,
-    maxZoom: 3,
-    bounds: true,
-});
-
 const resizeText = (selector) => {
     const textEl = document.querySelector(selector);
     const maxHeight = textEl.parentNode.offsetHeight;
@@ -46,6 +28,36 @@ const imageToBase64 = (file) => new Promise((resolve, reject) => {
     reader.onerror = function (error) {
         reject(error);
     };
+});
+
+elcreativeConfig.options.optionFeatureImageZoom = "1px";
+
+const viewport = document.querySelector('meta[name=viewport]');
+viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0');
+
+const uri = window.location.toString();
+if (uri.indexOf('?m=1', '?m=1') > 0) {
+    const cleanUri = uri.substring(0, uri.indexOf('?m=1'));
+    window.history.replaceState({}, document.title, cleanUri);
+};
+
+const imagePhotos = document.querySelector('#post_body .image_main img');
+const instance = panzoom(imagePhotos, {
+    minZoom: 0.5,
+    maxZoom: 3,
+    bounds: true,
+});
+
+const inputs = document.querySelectorAll('#post_body input[data-target]');
+inputs.forEach(input => {
+    const target = input.dataset.target;
+    const span = document.querySelector(`#post_body span[data-content="${target}"]`);
+    input.addEventListener('keyup', () => {
+        span.textContent = input.value;
+
+        resizeText('#post_body .content_primary .__wrapper');
+        resizeText('#post_body .content_secondary .__wrapper');
+    });
 });
 
 const inputPhoto = document.querySelector('#post_body .input_photo');
