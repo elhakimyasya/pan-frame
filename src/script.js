@@ -186,13 +186,6 @@ window.addEventListener('resize', () => {
     resizeText('#post_body .content_secondary .__wrapper');
 });
 
-window.onload = function () {
-    document.querySelector('#post_body .container').classList.remove('hidden');
-
-    resizeText('#post_body .content_primary .__wrapper');
-    resizeText('#post_body .content_secondary .__wrapper');
-};
-
 resizeText('#post_body .content_primary .__wrapper');
 resizeText('#post_body .content_secondary .__wrapper');
 
