@@ -24,19 +24,6 @@ const resizeText = (selector) => {
     const textEl = document.querySelector(selector);
     const maxHeight = textEl.parentNode.offsetHeight;
     let textHeight = textEl.offsetHeight;
-
-    const ratio = maxHeight / textHeight;
-    const fontSize = Math.min(100, ratio * 100);
-    if (maxHeight < textHeight) {
-        textEl.style.fontSize = fontSize + '%';
-        textEl.style.lineHeight = 1.3 * fontSize / 100;
-    }
-};
-
-const resizeText = (selector) => {
-    const textEl = document.querySelector(selector);
-    const maxHeight = textEl.parentNode.offsetHeight;
-    let textHeight = textEl.offsetHeight;
     const ratio = maxHeight / textHeight;
     const fontSize = Math.min(100, ratio * 100);
 
