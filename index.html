@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+        <title>Document</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Montserrat:wght@900&display=swap" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css" />
+        <link rel="stylesheet" href="./src/styles.css" />
+    </head>
+    <body id="post_body">
+        <div class="container">
+            <div class="image_container">
+                <img id="image_ornament" class="image_ornament" src="https://i.imgur.com/LDeJGq7.png" onclick="return false" width="500" height="500" />
+                <img id="image_background" class="image_background" src="https://i.imgur.com/UUB5eWK.png" onclick="return false" width="500" height="500" />
+                <div class="image_content">
+                    <div class="image_main">
+                        <img src="https://i.imgur.com/kNIouiD.png" onclick="return false" width="500" height="500" />
+                    </div>
+                    <div class="content_primary">
+                        <div class="__wrapper">
+                            <span class="__text_top" data-content="primary-text-top">KETUA UMUM DPP PAN</span>
+                            <span class="__text_center" data-content="primary-text-center">Dr. (HC) Zulkifli Hasan, S.E., M.M</span>
+                            <span class="__text_bottom" data-content="primary-text-bottom">MENTERI PERDAGANGAN REPULIK INDONESIA</span>
+                        </div>
+                    </div>
+                    <div class="content_secondary">
+                        <div class="__wrapper">
+                            <span class="__text_top" data-content="secondary-text-top">Dr. (HC) Zulkifli Hasan, S.E., M.M</span>
+                            <span class="__text_bottom" data-content="secondary-text-bottom">Ketua Umum DPP PAN</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-6">
+                <div class="elcreative_input">
+                    <input id="input_text_top" name="image_input" placeholder=" " type="text" data-target="primary-text-top" />
+                    <label for="input_text_top">Teks Atas</label>
+                </div>
+                <div class="elcreative_input">
+                    <input id="input_text_center" name="image_input" placeholder=" " type="text" data-target="primary-text-center" />
+                    <label for="input_text_center">Teks Tengah</label>
+                </div>
+                <div class="elcreative_input mb-4">
+                    <input id="input_text_bottom" name="image_input" placeholder=" " type="text" data-target="primary-text-bottom" />
+                    <label for="input_text_bottom">Teks Bawah</label>
+                </div>
+                <div class="elcreative_input mb-4">
+                    <input class="input_photo" id="foto" name="name" placeholder=" " type="file" accept="image/*" />
+                    <label for="input_photo">Unggah Foto</label>
+                </div>
+                <div class="elcreative_input">
+                    <input id="input_text_top_secondary" name="image_input" placeholder=" " type="text" data-target="secondary-text-top" />
+                    <label for="input_text_top_secondary">Nama Lengkap</label>
+                </div>
+                <div class="elcreative_input mb-4">
+                    <input id="input_text_bottom_secondary" name="image_input" placeholder=" " type="text" data-target="secondary-text-bottom" />
+                    <label for="input_text_bottom_secondary">Jabatan (Opsional)</label>
+                </div>
+
+                <div class="elcreative_input">
+                    <select id="select_image_ornament">
+                        <option disabled>Pilih Ornamen</option>
+                    </select>
+                    <label>Pilih Ornamen</label>
+                </div>
+                <div class="elcreative_input">
+                    <select id="select_image_background">
+                        <option disabled>Pilih Background</option>
+                    </select>
+                    <label>Pilih Background</label>
+                </div>
+            </div>
+
+            <div class="mx-auto">
+                <div class="btn_share_image elcreative_button elcreative_ripple raised w-full">Unduh Gambar</div>
+                <div class="btn_share_image_alt elcreative_button elcreative_ripple raised w-full">Bagikan</div>
+            </div>
+        </div>
+        <script>
+            var elcreativeConfig = {
+                options: {
+                    optionFeatureImageZoom: '1px',
+                },
+            };
+            const functionSnackbar = () => {};
+        </script>
+        <script src="./dist/scripts.min.js"></script>
+    </body>
+</html>
