@@ -22,30 +22,32 @@ const instance = panzoom(imagePhotos, {
 
 const resizeText = (selector) => {
     const textEl = document.querySelector(selector);
+    const maxHeight = textEl.parentNode.offsetHeight;
+    let textHeight = textEl.offsetHeight;
 
-    // Get the maximum height of the parent element
-    const maxHeight = textEl.parentNode.clientHeight;
+    const ratio = maxHeight / textHeight;
+    const fontSize = Math.min(100, ratio * 100);
+    if (maxHeight < textHeight) {
+        textEl.style.fontSize = fontSize + '%';
+        textEl.style.lineHeight = 1.3 * fontSize / 100;
+    }
+};
 
-    // Get the height of the text element
-    let textHeight = textEl.clientHeight;
-
-    // Calculate the font size based on the ratio of the text element's height to the parent element's height
+const resizeText = (selector) => {
+    const textEl = document.querySelector(selector);
+    const maxHeight = textEl.parentNode.offsetHeight;
+    let textHeight = textEl.offsetHeight;
     const ratio = maxHeight / textHeight;
     const fontSize = Math.min(100, ratio * 100);
 
-    // Set the font size and line-height in percentage units
-    textEl.style.fontSize = fontSize + '%';
-    textEl.style.lineHeight = 1.3 * fontSize / 100;
+    if (maxHeight < textHeight) {
+        textEl.style.fontSize = fontSize + '%';
+        textEl.style.lineHeight = 1.3 * fontSize / 100;
+    } else {
+        textEl.style.fontSize = '';
+        textEl.style.lineHeight = '';
+    }
 };
-
-const inputs = document.querySelectorAll('#post_body input[data-target]');
-inputs.forEach(input => {
-    const target = input.dataset.target;
-    const span = document.querySelector(`#post_body [data-content="${target}"]`);
-    input.addEventListener('keyup', () => {
-        span.textContent = input.value;
-    });
-});
 
 const imageToBase64 = (file) => new Promise((resolve, reject) => {
     let reader = new FileReader();
@@ -181,15 +183,10 @@ if (navigator.share) {
     buttonShareAlt.style.display = 'none';
 }
 
+resizeText('#post_body .content_primary .__wrapper');
+resizeText('#post_body .content_secondary .__wrapper');
+
 window.addEventListener('resize', () => {
     resizeText('#post_body .content_primary .__wrapper');
     resizeText('#post_body .content_secondary .__wrapper');
 });
-
-resizeText('#post_body .content_primary .__wrapper');
-resizeText('#post_body .content_secondary .__wrapper');
-
-// window.addEventListener('resize', () => {
-//     resizeText('#post_body .content_primary .__wrapper');
-//     resizeText('#post_body .content_secondary .__wrapper');
-// });
