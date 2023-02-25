@@ -79,39 +79,7 @@ inputPhoto.onchange = async () => {
     imagePhotos.setAttribute('src', await imageToBase64(photoFile));
 };
 
-const selectElements = [
-    {
-        selectId: '#post_body #select_image_ornament',
-        imageId: '#post_body #image_ornament',
-        options: {
-            "Logo PAN": "https://i.imgur.com/ROgEyYo.png",
-            "Logo PAN - Bendera": "https://i.imgur.com/LDeJGq7.png",
-            "Logo PAN - Pasti Ada HaraPAN": "https://i.imgur.com/Huwt70f.png",
-            "Logo PAN - Birukan Langit Indonesia": "https://i.imgur.com/wP2VARX.png",
-
-            "Logo PUAN": "https://i.imgur.com/E1XeCJq.png",
-
-            "Logo PAN - Logo PUAN": "https://i.imgur.com/UPPAYZb.png",
-            "Logo PAN - Logo DPRD Pringsewu": "https://i.imgur.com/5K6HsSf.png",
-
-            "Workshop Rakornas - Pemenangan Pemilu": "https://i.imgur.com/U4yKWDP.png",
-            "PAN 12 PAS": "https://i.imgur.com/NtbNvr2.png",
-            "Pasti Ada HaraPAN": "https://i.imgur.com/KSQNDjj.png",
-            "Birukan Langit Indonesia": "https://i.imgur.com/78RuXx9.png",
-        }
-    },
-    {
-        selectId: '#post_body #select_image_background',
-        imageId: '#post_body #image_background',
-        options: {
-            "Background 1": "https://i.imgur.com/UUB5eWK.png",
-            "Background 2": "https://i.imgur.com/49VKmUV.png",
-            "Background 3": "https://i.imgur.com/40MpEHl.png",
-            "Background 4": "https://i.imgur.com/xZnRcnQ.png",
-            "Background 5": "https://i.imgur.com/gPmXTJs.png",
-        }
-    }
-];
+// selectElements (index.html)
 
 selectElements.forEach(selectElement => {
     const select = document.querySelector(selectElement.selectId);
