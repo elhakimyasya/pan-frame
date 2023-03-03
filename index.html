@@ -22,29 +22,38 @@
     <body id="post_body">
         <div class="container">
             <div class="image_container">
-                <img id="image_ornament" class="image_ornament" src="https://i.imgur.com/LDeJGq7.png" onclick="return false" width="500" height="500" />
-                <img id="image_background" class="image_background" src="https://i.imgur.com/UUB5eWK.png" onclick="return false" width="500" height="500" />
+                <img id="image_ornament" class="image_ornament" src="https://i.imgur.com/SXfRR7P.png" onclick="return false" width="500" height="500" />
+                <img id="image_background" class="image_background" src="https://i.imgur.com/v8RlLnh.png" onclick="return false" width="500" height="500" />
                 <div class="image_content">
                     <div class="image_main">
-                        <img src="https://i.imgur.com/kNIouiD.png" onclick="return false" width="500" height="500" />
+                        <img src="https://i.imgur.com/iQJfs2N.png" onclick="return false" width="500" height="500" />
                     </div>
                     <div class="content_primary">
                         <div class="__wrapper">
-                            <span class="__text_top" data-content="primary-text-top">KETUA UMUM DPP PAN</span>
-                            <span class="__text_center" data-content="primary-text-center">Dr. (HC) Zulkifli Hasan, S.E., M.M</span>
-                            <span class="__text_bottom" data-content="primary-text-bottom">MENTERI PERDAGANGAN REPULIK INDONESIA</span>
+                            <span class="__text_top" data-content="primary-text-top">TWIBBON CAMPAIGN</span>
+                            <span class="__text_center" data-content="primary-text-center">PARTAI AMANAT NASIONAL</span>
+                            <span class="__text_bottom" data-content="primary-text-bottom"></span>
                         </div>
                     </div>
                     <div class="content_secondary">
                         <div class="__wrapper">
                             <span class="__text_top" data-content="secondary-text-top">Dr. (HC) Zulkifli Hasan, S.E., M.M</span>
-                            <span class="__text_bottom" data-content="secondary-text-bottom">Ketua Umum DPP PAN</span>
+                            <span class="__text_bottom" data-content="secondary-text-bottom">Ketua Umum DPP PAN | Menteri Perdagangan RI</span>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="mt-6">
+                <div class="grid grid-cols-2 items-center justify-center text-center gap-2 mb-4">
+                    <button id="button_choose_logo" class="button_choose_logo elcreative_button elcreative_ripple outlined" type="button" aria-label="Pilih Logo" data-toggle-class-on-target='active' data-toggle-escape='' data-toggle-outside='' data-toggle-target='#dialog_twibbon' >
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M22.7 14.3L21.7 15.3L19.7 13.3L20.7 12.3C20.8 12.2 20.9 12.1 21.1 12.1C21.2 12.1 21.4 12.2 21.5 12.3L22.8 13.6C22.9 13.8 22.9 14.1 22.7 14.3M13 19.9V22H15.1L21.2 15.9L19.2 13.9L13 19.9M11.21 15.83L9.25 13.47L6.5 17H13.12L15.66 14.55L13.96 12.29L11.21 15.83M11 19.9V19.05L11.05 19H5V5H19V11.31L21 9.38V5C21 3.9 20.11 3 19 3H5C3.9 3 3 3.9 3 5V19C3 20.11 3.9 21 5 21H11V19.9Z" /></svg><span>Pilih Logo</span>
+                    </button>
+                    <button id="button_choose_design" class="button_choose_design elcreative_button elcreative_ripple outlined" type="button" aria-label="Pilih Desain" data-toggle-class-on-target='active' data-toggle-escape='' data-toggle-outside='' data-toggle-target='#dialog_twibbon'>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M19,19H5V5H19M19,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3M13.96,12.29L11.21,15.83L9.25,13.47L6.5,17H17.5L13.96,12.29Z" /></svg><span>Pilih Desain</span>
+                    </button>
+                </div>
+
                 <div class="elcreative_input">
                     <input id="input_text_top" name="image_input" placeholder=" " type="text" data-target="primary-text-top" />
                     <label for="input_text_top">Teks Atas</label>
@@ -85,8 +94,19 @@
             </div>
 
             <div class="mx-auto">
-                <div class="btn_share_image elcreative_button elcreative_ripple raised w-full">Unduh Gambar</div>
-                <div class="btn_share_image_alt elcreative_button elcreative_ripple raised w-full">Bagikan</div>
+                <div class="btn_share_image elcreative_button elcreative_ripple raised w-full">Simpan Gambar</div>
+                <div class="btn_share_image_alt elcreative_button elcreative_ripple raised w-full">Bagikan Ke..</div>
+            </div>
+        </div>
+        <div aria-hidden="true" class="elcreative_dialog dialog_twibbon" id="dialog_twibbon" role="listbox">
+            <div class="dialog_container">
+                <div class="dialog_header">
+                    <span></span>
+                    <button aria-label="Close" class="elcreative_ripple elcreative_button_icon button_close_dialog ltr:ml-2 rtl:mr-2" data-toggle-trigger-off="" title="Close" type="button">
+                        <svg aria-hidden="true" fill="currentColor" height="24" viewBox="0 0 24 24" width="24"><path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" /></svg>
+                    </button>
+                </div>
+                <div class="dialog_content content_twibbon"></div>
             </div>
         </div>
         <script>
