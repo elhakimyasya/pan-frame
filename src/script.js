@@ -72,7 +72,7 @@ instance.on('panstart', () => {
 });
 instance.on('panend', () => {
     imageBackground.style.opacity = '1';
-    imagePhotos.style.zIndex = '10';
+    imagePhotos.style.zIndex = '-1';
 });
 
 const inputs = document.querySelectorAll('#post_body input[data-target]');
