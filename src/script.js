@@ -67,12 +67,10 @@ const instance = panzoom(imagePhotos, {
 
 const imageBackground = document.querySelector('.image_background');
 instance.on('panstart', () => {
-    imageBackground.style.opacity = '.5';
-    imagePhotos.style.zIndex = '10';
+    imageBackground.style.opacity = '.7';
 });
 instance.on('panend', () => {
     imageBackground.style.opacity = '1';
-    imagePhotos.style.zIndex = '-1';
 });
 
 const inputs = document.querySelectorAll('#post_body input[data-target]');
