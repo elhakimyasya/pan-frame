@@ -99,10 +99,10 @@ selectElements.forEach(selectElement => {
     let images = '';
 
     for (const key in selectElement.options) {
-        const option = document.createElement('option');
-        option.value = selectElement.options[key];
-        option.text = key;
-        select.appendChild(option);
+        // const option = document.createElement('option');
+        // option.value = selectElement.options[key];
+        // option.text = key;
+        // select.appendChild(option);
 
         images += `<img class='border cursor-pointer' title='${key}' src='${selectElement.options[key]}' onclick='document.querySelector("${selectElement.imageId}").src="${selectElement.options[key]}"' data-toggle-trigger-off/>`;
     };
