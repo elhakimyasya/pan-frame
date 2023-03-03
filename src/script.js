@@ -56,8 +56,6 @@ if (uri.indexOf('?m=1', '?m=1') > 0) {
     window.history.replaceState({}, document.title, cleanUri);
 };
 
-
-
 const imagePhotos = document.querySelector('#post_body .image_main img');
 const instance = panzoom(imagePhotos, {
     minZoom: 0.5,
