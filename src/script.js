@@ -65,6 +65,16 @@ const instance = panzoom(imagePhotos, {
     bounds: true,
 });
 
+const imageBackground = document.querySelector('.image_background');
+instance.on('panstart', () => {
+    imageBackground.style.opacity = '.5';
+    imagePhotos.style.zIndex = '10';
+});
+instance.on('panend', () => {
+    imageBackground.style.opacity = '1';
+    imagePhotos.style.zIndex = '10';
+});
+
 const inputs = document.querySelectorAll('#post_body input[data-target]');
 inputs.forEach(input => {
     const target = input.dataset.target;
@@ -84,9 +94,6 @@ inputPhoto.onchange = async () => {
 
     imagePhotos.setAttribute('src', await imageToBase64(photoFile));
 };
-
-
-
 
 // selectElements (index.html)
 
