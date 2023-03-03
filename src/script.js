@@ -107,16 +107,16 @@ selectElements.forEach(selectElement => {
         images += `<img class='border cursor-pointer' title='${key}' src='${selectElement.options[key]}' onclick='document.querySelector("${selectElement.imageId}").src="${selectElement.options[key]}"' data-toggle-trigger-off/>`;
     };
 
-    select.addEventListener('change', () => {
-        functionSnackbar('Memuat gambar...', 1000);
+    // select.addEventListener('change', () => {
+    //     functionSnackbar('Memuat gambar...', 1000);
 
-        const selectedValue = select.value;
-        if (selectedValue) {
-            image.src = selectedValue;
-        } else {
-            image.src = 'https://i.imgur.com/LDeJGq7.png';
-        }
-    });
+    //     const selectedValue = select.value;
+    //     if (selectedValue) {
+    //         image.src = selectedValue;
+    //     } else {
+    //         image.src = 'https://i.imgur.com/LDeJGq7.png';
+    //     }
+    // });
 
     button.addEventListener('click', (event) => {
         event.preventDefault();

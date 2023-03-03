@@ -46,10 +46,10 @@
 
             <div class="mt-6">
                 <div class="grid grid-cols-2 items-center justify-center text-center gap-2 mb-4">
-                    <button id="button_choose_logo" class="button_choose_logo elcreative_button elcreative_ripple outlined" type="button" aria-label="Pilih Logo" data-toggle-class-on-target='active' data-toggle-escape='' data-toggle-outside='' data-toggle-target='#dialog_twibbon' >
+                    <button id="button_choose_logo" class="button_choose_logo elcreative_button elcreative_ripple outlined" type="button" aria-label="Pilih Logo" data-toggle-class-on-target="active" data-toggle-escape="" data-toggle-outside="" data-toggle-target="#dialog_twibbon">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M22.7 14.3L21.7 15.3L19.7 13.3L20.7 12.3C20.8 12.2 20.9 12.1 21.1 12.1C21.2 12.1 21.4 12.2 21.5 12.3L22.8 13.6C22.9 13.8 22.9 14.1 22.7 14.3M13 19.9V22H15.1L21.2 15.9L19.2 13.9L13 19.9M11.21 15.83L9.25 13.47L6.5 17H13.12L15.66 14.55L13.96 12.29L11.21 15.83M11 19.9V19.05L11.05 19H5V5H19V11.31L21 9.38V5C21 3.9 20.11 3 19 3H5C3.9 3 3 3.9 3 5V19C3 20.11 3.9 21 5 21H11V19.9Z" /></svg><span>Pilih Logo</span>
                     </button>
-                    <button id="button_choose_design" class="button_choose_design elcreative_button elcreative_ripple outlined" type="button" aria-label="Pilih Desain" data-toggle-class-on-target='active' data-toggle-escape='' data-toggle-outside='' data-toggle-target='#dialog_twibbon'>
+                    <button id="button_choose_design" class="button_choose_design elcreative_button elcreative_ripple outlined" type="button" aria-label="Pilih Desain" data-toggle-class-on-target="active" data-toggle-escape="" data-toggle-outside="" data-toggle-target="#dialog_twibbon">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M19,19H5V5H19M19,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3M13.96,12.29L11.21,15.83L9.25,13.47L6.5,17H17.5L13.96,12.29Z" /></svg><span>Pilih Desain</span>
                     </button>
                 </div>
@@ -79,18 +79,18 @@
                     <label for="input_text_bottom_secondary">Jabatan (Opsional)</label>
                 </div>
 
-                <div class="elcreative_input">
-                    <select id="select_image_ornament">
-                        <option disabled>Pilih Logo</option>
-                    </select>
-                    <label>Pilih Logo</label>
-                </div>
-                <div class="elcreative_input">
-                    <select id="select_image_background">
-                        <option disabled>Pilih Desain</option>
-                    </select>
-                    <label>Pilih Desain</label>
-                </div>
+                <!-- <div class="elcreative_input">
+            <select id="select_image_ornament">
+                <option disabled>Pilih Logo</option>
+            </select>
+            <label>Pilih Logo</label>
+        </div>
+        <div class="elcreative_input">
+            <select id="select_image_background">
+                <option disabled>Pilih Desain</option>
+            </select>
+            <label>Pilih Desain</label>
+        </div> -->
             </div>
 
             <div class="mx-auto">
@@ -120,29 +120,52 @@
             const selectElements = [
                 {
                     selectId: '#post_body #select_image_ornament',
+                    buttonId: '#button_choose_logo',
                     imageId: '#post_body #image_ornament',
                     options: {
-                        'Logo PAN': 'https://i.imgur.com/ROgEyYo.png',
-                        'Logo PAN - Bendera': 'https://i.imgur.com/LDeJGq7.png',
-                        'Logo PAN - Pasti Ada HaraPAN': 'https://i.imgur.com/Huwt70f.png',
-                        'Logo PAN - Birukan Langit Indonesia': 'https://i.imgur.com/wP2VARX.png',
+                        'Logo PAN': 'https://i.imgur.com/q4ThYKJ.png',
+                        'Logo PAN - Logo PUAN': 'https://i.imgur.com/lhhJ2rO.png',
+                        'Logo PAN - Logo BM PAN': 'https://i.imgur.com/Q7gtVmp.png',
+                        'Logo PAN - Logo Garuda Pancasila': 'https://i.imgur.com/C5xcyDe.png',
+                        'Logo PAN - Logo BUMN': 'https://i.imgur.com/43DGIJ1.png',
+                        'Logo PAN - Logo Muhammadiyah': 'https://i.imgur.com/mZqZUve.png',
+                        'Logo PAN - Logo Aisyiyah': 'https://i.imgur.com/qLvxWla.png',
+                        'Logo PAN - Bendera Indonesia': 'https://i.imgur.com/SXfRR7P.png',
+                        'Logo PAN - Logo Putri Zulhas': 'https://i.imgur.com/IdaqL9y.png',
+                        'Logo PAN - PAN 12 PAS': 'https://i.imgur.com/Kuymav5.png',
+                        'Logo PAN - Milenial PAN': 'https://i.imgur.com/JeqVzPd.png',
+                        'Logo PAN - Birukan Langit Indonesia': 'https://i.imgur.com/Yr701u9.png',
+                        'Logo PAN - Pasti Ada HaraPAN': 'https://i.imgur.com/bWHoVzV.png',
+                        'Logo PAN - Logo DPRD Pringsewu': 'https://i.imgur.com/DGQsAkL.png',
 
-                        'Logo PUAN': 'https://i.imgur.com/E1XeCJq.png',
+                        'Logo PUAN': 'https://i.imgur.com/WIRELs7.png',
+                        'Logo BM PAN': 'https://i.imgur.com/tKjvhYU.png',
+                        'Logo Putri Zulhas': 'https://i.imgur.com/XVo37RT.png',
 
-                        'Logo PAN - Logo PUAN': 'https://i.imgur.com/UPPAYZb.png',
-                        'Logo PAN - Logo DPRD Pringsewu': 'https://i.imgur.com/5K6HsSf.png',
+                        'PAN 12 PAS': 'https://i.imgur.com/hCDBdj6.png',
+                        'Milenial PAN': 'https://i.imgur.com/3zIEm2k.png',
+                        'Birukan Langit Indonesia': 'https://i.imgur.com/FaHQSLt.png',
+                        'Pasti Ada HaraPAN': 'https://i.imgur.com/9OkKBEv.png',
 
                         'Workshop Rakornas - Pemenangan Pemilu': 'https://i.imgur.com/U4yKWDP.png',
-                        'PAN 12 PAS': 'https://i.imgur.com/NtbNvr2.png',
-                        'Pasti Ada HaraPAN': 'https://i.imgur.com/KSQNDjj.png',
-                        'Birukan Langit Indonesia': 'https://i.imgur.com/78RuXx9.png',
                     },
                 },
                 {
                     selectId: '#post_body #select_image_background',
+                    buttonId: '#button_choose_design',
                     imageId: '#post_body #image_background',
                     options: {
-                        'Desain 1': 'https://i.imgur.com/gPmXTJs.png',
+                        'Frame Bulat - Desain 1': 'https://i.imgur.com/NY88PoY.png',
+                        'Frame Bulat - Desain 2': 'https://i.imgur.com/v8RlLnh.png',
+                        'Frame Bulat - Desain 3': 'https://i.imgur.com/djJnpF7.png',
+                        'Frame Bulat - Desain 4': 'https://i.imgur.com/PItMQPu.png',
+                        'Frame Bulat - Desain 5': 'https://i.imgur.com/zcFYJ51.png',
+                        'Frame Bulat - Desain 6': 'https://i.imgur.com/0q0OtFJ.png',
+                        'Frame Bulat - Desain 7': 'https://i.imgur.com/rimtnJu.png',
+
+                        'Frame Persegi - Desain 1': 'https://i.imgur.com/x7UfJse.png',
+                        'Frame Persegi - Desain 2': 'https://i.imgur.com/fQ5KoeC.png',
+                        'Frame Persegi - Desain 3': 'https://i.imgur.com/cvjO0ra.png',
 
                         'Background 1': 'https://i.imgur.com/UUB5eWK.png',
                         'Background 2': 'https://i.imgur.com/49VKmUV.png',
