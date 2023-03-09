@@ -58,6 +58,9 @@ if (uri.indexOf('?m=1', '?m=1') > 0) {
 
 const imagePhotos = document.querySelector('#post_body .image_main img');
 const instance = panzoom(imagePhotos, {
+    contain: 'outside',
+    containZoom: true,
+    
     minZoom: 0.5,
     maxZoom: 3,
     bounds: true,
