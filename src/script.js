@@ -3,6 +3,7 @@ import panzoom from 'panzoom';
 import html2canvas from 'html2canvas';
 import { resizeText } from './resizeText';
 import { imageToBase64 } from './imageToBase64';
+import { panZoom } from './panZoom';
 
 Defer(() => {
     window.easyToggleState()
@@ -24,33 +25,13 @@ if (uri.indexOf('?m=1', '?m=1') > 0) {
 };
 
 const imagePhotos = document.querySelector('#post_body .image_main img');
-const instance = panzoom(imagePhotos, {
-    containZoom: true,
-    autocenter: true,
-    minZoom: 0.5,
-    maxZoom: 3,
-    bounds: true,
-});
-
-const imageOrnament = document.querySelector('.image_ornament');
-const imageBackground = document.querySelector('.image_background');
-const contentPrimary = document.querySelector('.content_primary');
-const contentSecondary = document.querySelector('.content_secondary');
-instance.on('panstart', () => {
-    imageOrnament.style.opacity = '.7';
-    imageBackground.style.opacity = '.7';
-    contentPrimary.style.opacity = '.7';
-    contentSecondary.style.opacity = '.7';
-});
-instance.on('panend', () => {
-    imageOrnament.style.opacity = '1';
-    imageBackground.style.opacity = '1';
-    contentPrimary.style.opacity = '1';
-    contentSecondary.style.opacity = '1';
-});
-instance.on('panzoomchange', () => {
-    imagePhotos.style.setProperty('transform-origin', '50% 50%');
-});
+panZoom({
+    elementImage: '#post_body .image_main img',
+    elementImageOrnament: '.image_ornament',
+    elementImageBackground: '.image_background',
+    elementContentPrimary: '.content_primary',
+    elementContentSecondary: '.content_secondary',
+})
 
 const inputs = document.querySelectorAll('#post_body input[data-target]');
 inputs.forEach(input => {
