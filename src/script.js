@@ -59,7 +59,7 @@ if (uri.indexOf('?m=1', '?m=1') > 0) {
 const imagePhotos = document.querySelector('#post_body .image_main img');
 const instance = panzoom(imagePhotos, {
     containZoom: true,
-
+    autocenter: true,
     minZoom: 0.5,
     maxZoom: 3,
     bounds: true,
@@ -82,10 +82,7 @@ instance.on('panend', () => {
     contentSecondary.style.opacity = '1';
 });
 instance.on('panzoomchange', () => {
-    const { left, top, width, height } = imagePhotos.getBoundingClientRect();
-    const centerX = left + width / 2;
-    const centerY = top + height / 2;
-    imagePhotos.style.transformOrigin = `${centerX}px ${centerY}px`;
+    imagePhotos.style.setProperty('transform-origin', '50% 50%');
 });
 
 const inputs = document.querySelectorAll('#post_body input[data-target]');
