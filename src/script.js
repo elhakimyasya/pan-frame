@@ -43,6 +43,8 @@ inputImage({
 
 const init = (config, dialogContainer) => {
     config.forEach((element) => {
+        const select = document.querySelector(selectElement.selectId);
+        const image = document.querySelector(selectElement.imageId);
         const button = document.querySelector(element.buttonId);
         const dialog = document.querySelector(dialogContainer);
 
@@ -54,6 +56,19 @@ const init = (config, dialogContainer) => {
             // select.appendChild(option);
 
             images += `<img class='border cursor-pointer' title='${key}' src='${element.options[key]}' onclick='document.querySelector("${element.imageId}").src="${element.options[key]}"' data-toggle-trigger-off/>`;
+        };
+
+        if (select) {
+            select.addEventListener('change', () => {
+                functionSnackbar('Memuat gambar...', 1000);
+
+                const selectedValue = select.value;
+                if (selectedValue) {
+                    image.src = selectedValue;
+                } else {
+                    image.src = 'https://i.imgur.com/LDeJGq7.png';
+                }
+            });
         };
 
         if (button) {
@@ -69,39 +84,11 @@ const init = (config, dialogContainer) => {
                     document.documentElement.classList.remove('overflow-hidden');
                 }
             })
-        }
+        };
     })
 };
 
-const dialogTwibbon = document.querySelector('#dialog_twibbon');
 init(selectElements, '#dialog_twibbon');
-// selectElements.forEach((selectElement) => {
-//     const select = document.querySelector(selectElement.selectId);
-//     const image = document.querySelector(selectElement.imageId);
-
-//     const button = document.querySelector(selectElement.buttonId);
-//     let images = '';
-
-//     for (const key in selectElement.options) {
-//         // const option = document.createElement('option');
-//         // option.value = selectElement.options[key];
-//         // option.text = key;
-//         // select.appendChild(option);
-
-//         images += `<img class='border cursor-pointer' title='${key}' src='${selectElement.options[key]}' onclick='document.querySelector("${selectElement.imageId}").src="${selectElement.options[key]}"' data-toggle-trigger-off/>`;
-//     };
-
-//     // select.addEventListener('change', () => {
-//     //     functionSnackbar('Memuat gambar...', 1000);
-
-//     //     const selectedValue = select.value;
-//     //     if (selectedValue) {
-//     //         image.src = selectedValue;
-//     //     } else {
-//     //         image.src = 'https://i.imgur.com/LDeJGq7.png';
-//     //     }
-//     // });
-// });
 
 const imageContainer = document.querySelector('#post_body .image_container');
 const buttonShare = document.querySelector('#post_body .btn_share_image');
@@ -162,7 +149,6 @@ if (navigator.share) {
 
 resizeText('#post_body .content_primary .__wrapper');
 resizeText('#post_body .content_secondary .__wrapper');
-
 
 window.addEventListener('resize', () => {
     if (!isMobile()) {
