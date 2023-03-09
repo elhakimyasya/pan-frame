@@ -2,7 +2,6 @@ import './styles.css';
 import panzoom from 'panzoom';
 import html2canvas from 'html2canvas';
 import { resizeText } from './resizeText';
-import { imageToBase64 } from './imageToBase64';
 import { panZoom } from './panZoom';
 import { inputKeyup } from './inputKeyup';
 import { inputImage } from './inputImage';
@@ -42,49 +41,57 @@ inputImage({
     elementTarget: '#post_body .input_photo',
 });
 
+const init = (config, dialogContainer) => {
+    config.forEach((element) => {
+        const button = document.querySelector(element.buttonId);
+        const dialog = document.querySelector(dialogContainer);
 
-const dialogTwibbon = document.querySelector('#dialog_twibbon');
-selectElements.forEach(selectElement => {
-    const select = document.querySelector(selectElement.selectId);
-    const image = document.querySelector(selectElement.imageId);
-
-    const button = document.querySelector(selectElement.buttonId);
-    let images = '';
-
-    for (const key in selectElement.options) {
-        // const option = document.createElement('option');
-        // option.value = selectElement.options[key];
-        // option.text = key;
-        // select.appendChild(option);
-
-        images += `<img class='border cursor-pointer' title='${key}' src='${selectElement.options[key]}' onclick='document.querySelector("${selectElement.imageId}").src="${selectElement.options[key]}"' data-toggle-trigger-off/>`;
-    };
-
-    // select.addEventListener('change', () => {
-    //     functionSnackbar('Memuat gambar...', 1000);
-
-    //     const selectedValue = select.value;
-    //     if (selectedValue) {
-    //         image.src = selectedValue;
-    //     } else {
-    //         image.src = 'https://i.imgur.com/LDeJGq7.png';
-    //     }
-    // });
-
-    button.addEventListener('click', (event) => {
-        event.preventDefault();
-        functionSnackbar('Memuat gambar...', 1000);
-        dialogTwibbon.querySelector('.dialog_content').innerHTML = `<div class='grid grid-cols-2 gap-2 lg:grid-cols-3'>${images}</div>`
-    });
-
-    button.addEventListener('toggleAfter', (event) => {
-        if (easyToggleState.isActive(event.target)) {
-            document.documentElement.classList.add('overflow-hidden');
-        } else {
-            document.documentElement.classList.remove('overflow-hidden');
+        if (button) {
+            button.addEventListener('click', (event) => {
+                event.preventDefault();
+                functionSnackbar('Memuat gambar...', 1000);
+                dialog.querySelector('.dialog_content').innerHTML = `<div class='grid grid-cols-2 gap-2 lg:grid-cols-3'>${images}</div>`
+            });
+            button.addEventListener('toggleAfter', (event) => {
+                if (easyToggleState.isActive(event.target)) {
+                    document.documentElement.classList.add('overflow-hidden');
+                } else {
+                    document.documentElement.classList.remove('overflow-hidden');
+                }
+            })
         }
     })
-});
+};
+
+const dialogTwibbon = document.querySelector('#dialog_twibbon');
+init(selectElements, '#dialog_twibbon');
+// selectElements.forEach((selectElement) => {
+//     const select = document.querySelector(selectElement.selectId);
+//     const image = document.querySelector(selectElement.imageId);
+
+//     const button = document.querySelector(selectElement.buttonId);
+//     let images = '';
+
+//     for (const key in selectElement.options) {
+//         // const option = document.createElement('option');
+//         // option.value = selectElement.options[key];
+//         // option.text = key;
+//         // select.appendChild(option);
+
+//         images += `<img class='border cursor-pointer' title='${key}' src='${selectElement.options[key]}' onclick='document.querySelector("${selectElement.imageId}").src="${selectElement.options[key]}"' data-toggle-trigger-off/>`;
+//     };
+
+//     // select.addEventListener('change', () => {
+//     //     functionSnackbar('Memuat gambar...', 1000);
+
+//     //     const selectedValue = select.value;
+//     //     if (selectedValue) {
+//     //         image.src = selectedValue;
+//     //     } else {
+//     //         image.src = 'https://i.imgur.com/LDeJGq7.png';
+//     //     }
+//     // });
+// });
 
 const imageContainer = document.querySelector('#post_body .image_container');
 const buttonShare = document.querySelector('#post_body .btn_share_image');
