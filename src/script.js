@@ -43,8 +43,8 @@ inputImage({
 
 const init = (config, dialogContainer) => {
     config.forEach((element) => {
-        const select = document.querySelector(selectElement.selectId);
-        const image = document.querySelector(selectElement.imageId);
+        const select = document.querySelector(element.selectId);
+        const image = document.querySelector(element.imageId);
         const button = document.querySelector(element.buttonId);
         const dialog = document.querySelector(dialogContainer);
 
