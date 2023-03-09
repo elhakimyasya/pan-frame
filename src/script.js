@@ -81,8 +81,11 @@ instance.on('panend', () => {
     contentPrimary.style.opacity = '1';
     contentSecondary.style.opacity = '1';
 });
-instance.on('transform', () => {
-    imagePhotos.style.transformOrigin = 'center';
+instance.on('panzoomchange', () => {
+    const { left, top, width, height } = imagePhotos.getBoundingClientRect();
+    const centerX = left + width / 2;
+    const centerY = top + height / 2;
+    imagePhotos.style.transformOrigin = `${centerX}px ${centerY}px`;
 });
 
 const inputs = document.querySelectorAll('#post_body input[data-target]');
