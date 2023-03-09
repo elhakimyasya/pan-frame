@@ -78,7 +78,7 @@
     cursor: move;
 
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-42.5%, 0)
 }
 #post_body .image_container .image_content .image_main img {
     display: block;
