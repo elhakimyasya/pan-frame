@@ -4,6 +4,8 @@ import html2canvas from 'html2canvas';
 import { resizeText } from './resizeText';
 import { imageToBase64 } from './imageToBase64';
 import { panZoom } from './panZoom';
+import { inputKeyup } from './inputKeyup';
+import { inputImage } from './inputImage';
 
 Defer(() => {
     window.easyToggleState()
@@ -31,29 +33,15 @@ panZoom({
     elementImageBackground: '.image_background',
     elementContentPrimary: '.content_primary',
     elementContentSecondary: '.content_secondary',
-})
-
-const inputs = document.querySelectorAll('#post_body input[data-target]');
-inputs.forEach(input => {
-    const target = input.dataset.target;
-    const span = document.querySelector(`#post_body span[data-content="${target}"]`);
-    input.addEventListener('keyup', () => {
-        span.textContent = input.value;
-
-        resizeText('#post_body .content_primary .__wrapper');
-        resizeText('#post_body .content_secondary .__wrapper');
-    });
+});
+inputKeyup({
+    elementTarget: '#post_body input[data-target]',
+});
+inputImage({
+    elementImage: '#post_body .image_main img',
+    elementTarget: '#post_body .input_photo',
 });
 
-const inputPhoto = document.querySelector('#post_body .input_photo');
-inputPhoto.onchange = async () => {
-    let photoFile = inputPhoto.files[0];
-    functionSnackbar('Mengunggah Foto...', 2000);
-
-    imagePhotos.setAttribute('src', await imageToBase64(photoFile));
-};
-
-// selectElements (index.html)
 
 const dialogTwibbon = document.querySelector('#dialog_twibbon');
 selectElements.forEach(selectElement => {
