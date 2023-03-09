@@ -58,20 +58,31 @@ if (uri.indexOf('?m=1', '?m=1') > 0) {
 
 const imagePhotos = document.querySelector('#post_body .image_main img');
 const instance = panzoom(imagePhotos, {
-    contain: 'outside',
     containZoom: true,
-    
+
     minZoom: 0.5,
     maxZoom: 3,
     bounds: true,
 });
 
+const imageOrnament = document.querySelector('.image_ornament');
 const imageBackground = document.querySelector('.image_background');
+const contentPrimary = document.querySelector('.content_primary');
+const contentSecondary = document.querySelector('.content_secondary');
 instance.on('panstart', () => {
+    imageOrnament.style.opacity = '.7';
     imageBackground.style.opacity = '.7';
+    contentPrimary.style.opacity = '.7';
+    contentSecondary.style.opacity = '.7';
 });
 instance.on('panend', () => {
+    imageOrnament.style.opacity = '1';
     imageBackground.style.opacity = '1';
+    contentPrimary.style.opacity = '1';
+    contentSecondary.style.opacity = '1';
+});
+instance.on('transform', () => {
+    imagePhotos.style.transformOrigin = 'center';
 });
 
 const inputs = document.querySelectorAll('#post_body input[data-target]');
