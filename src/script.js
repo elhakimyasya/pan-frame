@@ -46,6 +46,16 @@ const init = (config, dialogContainer) => {
         const button = document.querySelector(element.buttonId);
         const dialog = document.querySelector(dialogContainer);
 
+        let images = '';
+        for (const key in config.options) {
+            // const option = document.createElement('option');
+            // option.value = selectElement.options[key];
+            // option.text = key;
+            // select.appendChild(option);
+
+            images += `<img class='border cursor-pointer' title='${key}' src='${config.options[key]}' onclick='document.querySelector("${config.imageId}").src="${config.options[key]}"' data-toggle-trigger-off/>`;
+        };
+
         if (button) {
             button.addEventListener('click', (event) => {
                 event.preventDefault();
