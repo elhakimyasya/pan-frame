@@ -159,7 +159,7 @@ const initTwibbon = (config) => {
 
                 if (select) {
                     select.addEventListener('change', () => {
-                        functionSnackbar('Memuat gambar...', 1000);
+                        snackbar('Memuat gambar...', 1000);
 
                         const selectedValue = select.value;
                         if (selectedValue) {
@@ -173,7 +173,7 @@ const initTwibbon = (config) => {
                 if (button) {
                     button.addEventListener('click', (event) => {
                         event.preventDefault();
-                        functionSnackbar('Memuat gambar...', 1000);
+                        snackbar('Memuat gambar...', 1000);
                         dialog.querySelector('.dialog_content').innerHTML = `<div class='grid grid-cols-2 gap-2 lg:grid-cols-3'>${images}</div>`;
                     });
                     button.addEventListener('toggleAfter', (event) => {
